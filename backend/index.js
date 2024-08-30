@@ -7,13 +7,10 @@ const mongoose = require('mongoose');
 // Import express for building the web server
 const express = require('express');  
 
-// Debugging: Check if MONGO_URI is loaded correctly from the environment variables
-console.log('MONGO_URI:', process.env.MONGO_URI); 
-
 // Connect to MongoDB using the MONGO_URI environment variable
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))  // Log success message on successful connection
-  .catch(err => console.log(err));  // Log any errors that occur during the connection
+  .catch(err => console.log('MongoDB connection error:', err));  // Log any errors that occur during the connection
 
 // Initialize express application
 const app = express();  
