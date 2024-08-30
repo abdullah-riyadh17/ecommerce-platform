@@ -24,6 +24,10 @@ app.get('/', (req, res) => {
 const productRoutes = require('./routes/productRoutes');
 app.use('/api/products', productRoutes);  // Mount product routes at /api/products
 
+// Import and use admin routes
+const adminRoutes = require('./routes/adminRoutes');
+app.use('/api/admin', adminRoutes); // Admin routes for product management
+
 // Define the port on which the server will listen for requests
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
